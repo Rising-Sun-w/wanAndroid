@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llt_fond"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_50"
+    android:orientation="vertical"
+    tools:context=".view.fragment.FondFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_fond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_900"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="5dp"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@color/blue_900"
+        app:tabTextColor="@color/white" />
+
+    <FrameLayout
+        android:id="@+id/fly_fond_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_fond"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+</LinearLayout>

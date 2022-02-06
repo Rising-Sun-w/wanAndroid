@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homepage"
+        android:title="首页"
+        android:icon="@drawable/ic_write"/>
+
+    <item
+        android:id="@+id/qa"
+        android:title="问答"
+        android:icon="@drawable/ic_qa"/>
+
+    <item
+        android:id="@+id/collect"
+        android:title="收藏"
+        android:icon="@drawable/ic_star"/>
+
+    <item
+        android:id="@+id/fond"
+        android:title="发现"
+        android:icon="@drawable/ic_look"/>
+
+    <item
+        android:id="@+id/my"
+        android:title="我的"
+        android:icon="@drawable/ic_my"/>
+
+</menu>
