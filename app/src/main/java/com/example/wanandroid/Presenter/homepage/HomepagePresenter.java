@@ -1,4 +1,4 @@
-package com.example.wanandroid.Presenter.adapter.homepage;
+package com.example.wanandroid.Presenter.homepage;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -14,20 +13,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
-import com.example.wanandroid.Presenter.IMessagePresenter;
+import com.example.wanandroid.Presenter.interfaces.IMessagePresenter;
 import com.example.wanandroid.Presenter.interfaces.OnItemClickListener;
 import com.example.wanandroid.R;
 import com.example.wanandroid.model.bean.ArticleListBean;
 import com.example.wanandroid.model.bean.SlideshowBean;
 import com.example.wanandroid.model.homepage.HomepageModel;
 import com.example.wanandroid.view.activities.ContentActivity;
-import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * @author : RisingSun
@@ -40,16 +38,28 @@ public class HomepagePresenter implements IMessagePresenter {
     private Context mContext;
     private ViewPager vpHpg;
     private RecyclerView rvHpg;
+    private static int page = 0;
+    private Boolean isRefresh;
+    private static ArrayList<ArticleListBean.Data.DataS> articleMoreList = new ArrayList<>();
     private static final String TAG = "HomepagePresenter";
 
     HomepageModel homepageModel = new HomepageModel();
     Gson gson = new Gson();
 
-    public HomepagePresenter(Context context, ViewPager vp, RecyclerView rv) {
+    public HomepagePresenter(Context context, RecyclerView rv, Boolean isRefresh) {
+        mContext = context;
+        rvHpg = rv;
+        homepageModel.getArticleData(this, page++);
+        this.isRefresh = isRefresh;
+    }
+
+    public HomepagePresenter(Context context, ViewPager vp, RecyclerView rv, Boolean isRefresh) {
         mContext = context;
         vpHpg = vp;
         rvHpg = rv;
-        homepageModel.getDataS(this);
+        homepageModel.getBannerData(this);
+        homepageModel.getArticleData(this, page++);
+        this.isRefresh = isRefresh;
     }
 
     @Override
@@ -60,7 +70,6 @@ public class HomepagePresenter implements IMessagePresenter {
                 break;
             case 12:
                 mBannerHandler.sendMessage(msg);
-                Log.e("HomepagePresenter", "mBannerHandler");
                 break;
             default:
         }
@@ -91,7 +100,6 @@ public class HomepagePresenter implements IMessagePresenter {
         }
     };
 
-
     Handler mArticleHandler = new Handler(Looper.myLooper()) {
         @SuppressLint("NotifyDataSetChanged")
         @Override
@@ -101,19 +109,34 @@ public class HomepagePresenter implements IMessagePresenter {
             ArticleListBean articleListBean = gson.fromJson(jsonStr, ArticleListBean.class);
             // 0 ----> 请求成功
             if (articleListBean.getErrorCode() == 0) {
+                ArticleAdapter articleAdapter = new ArticleAdapter(mContext, rvHpg);
                 ArrayList<ArticleListBean.Data.DataS> articleList = new ArrayList<>(articleListBean.data.dataS);
-                LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-                rvHpg.setLayoutManager(layoutManager);
-                ArticleAdapter articleAdapter = new ArticleAdapter(mContext, articleList);
+                articleMoreList.addAll(articleList);
+                int size = articleMoreList.size();
+                if (page - 1 == 0 || isRefresh) {
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+                    rvHpg.setLayoutManager(layoutManager);
+                    articleAdapter = new ArticleAdapter(mContext, articleMoreList, rvHpg);
+                    rvHpg.setAdapter(articleAdapter);
+                } else {
+                    articleAdapter.setArticleList(articleMoreList);
+                    rvHpg.scrollToPosition(size);
+                }
                 // 子item的点击事件
-                articleAdapter.setOnItemClickListener((int position) -> {
-                    // 跳转到ContentActivity
-                    Intent intent = new Intent();
-                    intent.setClass(mContext, ContentActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mContext.startActivity(intent);
+                articleAdapter.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemShortClick(int position) {
+                        // 跳转到ContentActivity
+                        Intent intent = new Intent();
+                        intent.setClass(mContext, ContentActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(intent);
+                    }
+
+                    @Override
+                    public void onItemLongClick(int position) {
+                    }
                 });
-                rvHpg.setAdapter(articleAdapter);
             }
         }
     };

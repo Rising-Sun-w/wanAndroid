@@ -1,4 +1,4 @@
-package com.example.wanandroid.model.fond;
+package com.example.wanandroid.model.qa;
 
 import android.os.Message;
 import android.util.Log;
@@ -16,20 +16,18 @@ import okhttp3.Response;
  * @author : RisingSun
  * @description ： TODO:
  * @email : 2803724412@qq.com
- * @date : 2022/1/28 19:18
+ * @date : 2022/2/9 14:04
  */
-public class SystemModel {
+public class QaModel {
 
-    private static final String TAG = "SystemModel";
+    private static final String BASEURL_QA = "https://wanandroid.com/wenda/list/";
+    private static final String TAG = "QaModel";
 
-    private static final String URL_SYSTEM = "https://www.wanandroid.com/tree/json";
-
-    /**
-     * 网络请求数据
-     */
-    public static void getData(IMessagePresenter iMessagePresenter){
+    public static void getData(IMessagePresenter iMessagePresenter, int page) {
+        Log.e(TAG, "=====page====" + page);
+        String URL_QA = BASEURL_QA + page + "/json";
         NetUtils netUtils = new NetUtils();
-        netUtils.getRequest1(URL_SYSTEM, new Callback() {
+        netUtils.getRequest1(URL_QA, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e(TAG, "请求失败");
@@ -38,7 +36,7 @@ public class SystemModel {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Message msg = new Message();
-                msg.what = 21;
+                msg.what = 111;
                 msg.obj = response.body().string();
                 iMessagePresenter.loadLoginCondition(msg);
             }

@@ -3,7 +3,7 @@ package com.example.wanandroid.model.login;
 import android.os.Message;
 import android.util.Log;
 
-import com.example.wanandroid.Presenter.IMessagePresenter;
+import com.example.wanandroid.Presenter.interfaces.IMessagePresenter;
 import com.example.wanandroid.utils.NetUtils;
 import com.example.wanandroid.utils.RequestParameter;
 

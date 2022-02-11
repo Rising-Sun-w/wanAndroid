@@ -1,6 +1,6 @@
 package com.example.wanandroid.model.login;
 
-import com.example.wanandroid.Presenter.IMessagePresenter;
+import com.example.wanandroid.Presenter.interfaces.IMessagePresenter;
 import com.example.wanandroid.utils.RequestParameter;
 
 import java.util.ArrayList;

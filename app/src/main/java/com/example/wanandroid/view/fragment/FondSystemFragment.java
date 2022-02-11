@@ -3,16 +3,14 @@ package com.example.wanandroid.view.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.wanandroid.Presenter.adapter.fond.FondSystemAdapter;
-import com.example.wanandroid.Presenter.adapter.fond.FondSystemPresenter;
+import com.example.wanandroid.Presenter.fond.FondSystemAdapter;
+import com.example.wanandroid.Presenter.fond.FondSystemPresenter;
 import com.example.wanandroid.R;
 import com.example.wanandroid.model.bean.SystemBean;
 

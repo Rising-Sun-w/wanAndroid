@@ -1,10 +1,9 @@
-package com.example.wanandroid.Presenter.adapter.fond;
+package com.example.wanandroid.Presenter.fond;
 
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.media.session.IMediaControllerCallback;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -12,17 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wanandroid.Presenter.IMessagePresenter;
-import com.example.wanandroid.model.bean.LoginRegisterBean;
+import com.example.wanandroid.Presenter.interfaces.IMessagePresenter;
 import com.example.wanandroid.model.bean.SystemBean;
 import com.example.wanandroid.model.fond.NavigationModel;
 import com.example.wanandroid.model.fond.SystemModel;
-import com.example.wanandroid.view.fragment.FondSystemFragment;
-import com.example.wanandroid.view.fragment.IFondSystemFragment;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * @author : RisingSun

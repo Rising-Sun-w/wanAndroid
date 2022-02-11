@@ -1,18 +1,9 @@
-package com.example.wanandroid.Presenter.adapter.main;
-
-import android.annotation.SuppressLint;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+package com.example.wanandroid.Presenter.main;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
-import com.example.wanandroid.R;
 
 import java.util.ArrayList;
 

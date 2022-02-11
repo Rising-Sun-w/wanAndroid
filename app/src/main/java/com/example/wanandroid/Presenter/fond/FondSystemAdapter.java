@@ -1,25 +1,17 @@
-package com.example.wanandroid.Presenter.adapter.fond;
+package com.example.wanandroid.Presenter.fond;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.example.wanandroid.Presenter.IMessagePresenter;
 import com.example.wanandroid.R;
-import com.example.wanandroid.model.bean.LoginRegisterBean;
 import com.example.wanandroid.model.bean.SystemBean;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 

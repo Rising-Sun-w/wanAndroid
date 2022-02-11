@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.wanandroid.Presenter.adapter.fond.FondAdapter;
+import com.example.wanandroid.Presenter.fond.FondAdapter;
 import com.example.wanandroid.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;

@@ -11,5 +11,7 @@ public interface OnItemClickListener {
      * item的点击事件
      * @param position 指定item的下标
      */
-    void onItemClick(int position);
+    void onItemShortClick(int position);
+
+    void onItemLongClick(int position);
 }

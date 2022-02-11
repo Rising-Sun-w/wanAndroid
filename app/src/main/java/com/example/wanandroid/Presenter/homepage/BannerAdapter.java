@@ -1,6 +1,5 @@
-package com.example.wanandroid.Presenter.adapter.homepage;
+package com.example.wanandroid.Presenter.homepage;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
