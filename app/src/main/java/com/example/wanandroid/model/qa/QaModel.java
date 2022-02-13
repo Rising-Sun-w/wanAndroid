@@ -25,11 +25,12 @@ public class QaModel {
 
     public static void getData(IMessagePresenter iMessagePresenter, int page) {
         Log.e(TAG, "=====page====" + page);
-        String URL_QA = BASEURL_QA + page + "/json";
+        String urlQa = BASEURL_QA + page + "/json";
         NetUtils netUtils = new NetUtils();
-        netUtils.getRequest1(URL_QA, new Callback() {
+        netUtils.getRequest(urlQa, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                iMessagePresenter.loadFail();
                 Log.e(TAG, "请求失败");
             }
 
@@ -38,7 +39,7 @@ public class QaModel {
                 Message msg = new Message();
                 msg.what = 111;
                 msg.obj = response.body().string();
-                iMessagePresenter.loadLoginCondition(msg);
+                iMessagePresenter.loadSuccess(msg);
             }
         });
     }

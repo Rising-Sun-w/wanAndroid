@@ -25,12 +25,13 @@ public class LoginModel implements ILoginModel {
     private static final String URL_LOGIN = "https://www.wanandroid.com/user/login";
 
     @Override
-    public void getData(ArrayList<RequestParameter> parameters, IMessagePresenter loginPresenter) {
+    public void getData(ArrayList<RequestParameter> parameters, IMessagePresenter iMessagePresenter) {
         Message msg = new Message();
         NetUtils netUtils = new NetUtils();
         netUtils.postRequest(URL_LOGIN, parameters, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                iMessagePresenter.loadFail();
                 Log.e("TAG", "请求失败");
             }
 
@@ -38,7 +39,7 @@ public class LoginModel implements ILoginModel {
             public void onResponse(Call call, Response response) throws IOException {
                 msg.what = MSG_LOGIN;
                 msg.obj = response.body().string();
-                loginPresenter.loadLoginCondition(msg);
+                iMessagePresenter.loadSuccess(msg);
             }
         });
     }

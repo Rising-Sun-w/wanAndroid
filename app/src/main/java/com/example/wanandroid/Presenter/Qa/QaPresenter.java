@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,10 +45,15 @@ public class QaPresenter implements IMessagePresenter {
     }
 
     @Override
-    public void loadLoginCondition(Message msg) {
+    public void loadSuccess(Message msg) {
         if (msg.what == MSG_QA) {
             mHandler.sendMessage(msg);
         }
+    }
+
+    @Override
+    public void loadFail() {
+        Toast.makeText(mContext, "网络似乎不给力", Toast.LENGTH_SHORT).show();
     }
 
     Handler mHandler = new Handler(Looper.myLooper()) {

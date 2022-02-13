@@ -32,7 +32,7 @@ public class NetUtils {
     /**
      * GET 异步请求
      */
-    public void getRequest1(String url, Callback callback) {
+    public void getRequest(String url, Callback callback) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .get()

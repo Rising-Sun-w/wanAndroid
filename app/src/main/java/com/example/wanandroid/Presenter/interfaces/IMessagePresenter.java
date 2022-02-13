@@ -12,8 +12,14 @@ public interface IMessagePresenter {
 
     /**
      * 控制Model层的数据操作及调用View层的UI操作来完成“中间人”工作
+     * 网络请求成功并返回信息
      *
      * @param msg Model层向Presenter层传回msg
      */
-    void loadLoginCondition(Message msg);
+    void loadSuccess(Message msg);
+
+    /**
+     * 网络请求失败
+     */
+    void loadFail();
 }

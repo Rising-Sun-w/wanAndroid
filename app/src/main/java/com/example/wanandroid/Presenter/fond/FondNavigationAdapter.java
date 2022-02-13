@@ -15,7 +15,7 @@ import com.example.wanandroid.Presenter.interfaces.OnItemClickListener;
 import com.example.wanandroid.R;
 import com.example.wanandroid.model.bean.NavigationBean;
 import com.example.wanandroid.model.bean.SystemBean;
-import com.example.wanandroid.view.activities.SystemContentActivity;
+import com.example.wanandroid.view.activities.ContentActivity;
 
 import java.util.ArrayList;
 
@@ -25,16 +25,15 @@ import java.util.ArrayList;
  * @email : 2803724412@qq.com
  * @date : 2022/1/26 16:38
  */
-public class FondSystemAdapter extends RecyclerView.Adapter<FondSystemAdapter.ViewHolder> {
+public class FondNavigationAdapter extends RecyclerView.Adapter<FondNavigationAdapter.ViewHolder> {
 
-    private static final String TAG = "FondSystemAdapter";
-    private ArrayList<SystemBean.Data> titleList;
+    private static final String TAG = "FondNavigationAdapter";
+    private final ArrayList<NavigationBean.Data> navigationList;
     private final Context context;
-    private OnItemClickListener onItemClickListener;
 
-    public FondSystemAdapter(Context context, ArrayList<SystemBean.Data> titleList) {
+    public FondNavigationAdapter(Context context, ArrayList<NavigationBean.Data> navigationList) {
         this.context = context;
-        this.titleList = titleList;
+        this.navigationList = navigationList;
     }
 
     @NonNull
@@ -46,32 +45,30 @@ public class FondSystemAdapter extends RecyclerView.Adapter<FondSystemAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(titleList.get(position).getName());
-        ArrayList<SystemBean.Data.Children> contentList = titleList.get(position).getChildren();
+        holder.tvTitle.setText(navigationList.get(position).getName());
+        ArrayList<NavigationBean.Data.Articles> contentList = navigationList.get(position).getArticles();
         // 子Recyclerview的设置   瀑布流布局
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         holder.rvContent.setLayoutManager(layoutManager);
-        FondSystemBtnAdapter fondSystemBtnAdapter = new FondSystemBtnAdapter(context, contentList);
-        fondSystemBtnAdapter.setOnItemClickListener(new OnItemClickListener() {
+        FondNavigationBtnAdapter navigationBtnAdapter = new FondNavigationBtnAdapter(context, contentList);
+        navigationBtnAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemShortClick(int position) {
                 Intent intent = new Intent();
-                intent.setClass(context, SystemContentActivity.class);
+                intent.setClass(context, ContentActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
 
             @Override
-            public void onItemLongClick(int position) {
-
-            }
+            public void onItemLongClick(int position) {}
         });
-        holder.rvContent.setAdapter(fondSystemBtnAdapter);
+        holder.rvContent.setAdapter(navigationBtnAdapter);
     }
 
     @Override
     public int getItemCount() {
-        return titleList.size();
+        return navigationList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -84,9 +81,5 @@ public class FondSystemAdapter extends RecyclerView.Adapter<FondSystemAdapter.Vi
             tvTitle = itemView.findViewById(R.id.tv_tab_title);
             rvContent = itemView.findViewById(R.id.rv_tab_content);
         }
-    }
-
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
     }
 }

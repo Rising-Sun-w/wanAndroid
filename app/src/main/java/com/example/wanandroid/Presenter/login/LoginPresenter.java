@@ -40,8 +40,13 @@ public class LoginPresenter implements IMessagePresenter {
     }
 
     @Override
-    public void loadLoginCondition(Message msg) {
+    public void loadSuccess(Message msg) {
         mHandler.sendMessage(msg);
+    }
+
+    @Override
+    public void loadFail() {
+        Toast.makeText(context, "网络似乎不给力", Toast.LENGTH_SHORT).show();
     }
 
     Handler mHandler = new Handler(Looper.myLooper()) {

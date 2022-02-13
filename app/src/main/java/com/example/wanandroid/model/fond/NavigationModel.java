@@ -27,11 +27,12 @@ public class NavigationModel {
     /**
      * 网络请求数据
      */
-    public static void getData(IMessagePresenter iMessagePresenter){
+    public static void getNavigationData(IMessagePresenter iMessagePresenter){
         NetUtils netUtils = new NetUtils();
-        netUtils.getRequest1(URL_NAVI, new Callback() {
+        netUtils.getRequest(URL_NAVI, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                iMessagePresenter.loadFail();
                 Log.e(TAG, "请求失败");
             }
 
@@ -40,7 +41,8 @@ public class NavigationModel {
                 Message msg = new Message();
                 msg.what = 31;
                 msg.obj = response.body().string();
-                iMessagePresenter.loadLoginCondition(msg);
+                iMessagePresenter.loadSuccess(msg);
+                response.close();
             }
         });
     }

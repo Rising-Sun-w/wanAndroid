@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -63,7 +64,7 @@ public class HomepagePresenter implements IMessagePresenter {
     }
 
     @Override
-    public void loadLoginCondition(Message msg) {
+    public void loadSuccess(Message msg) {
         switch (msg.what) {
             case 11:
                 mArticleHandler.sendMessage(msg);
@@ -73,6 +74,11 @@ public class HomepagePresenter implements IMessagePresenter {
                 break;
             default:
         }
+    }
+
+    @Override
+    public void loadFail() {
+        Toast.makeText(mContext, "网络似乎不给力", Toast.LENGTH_SHORT).show();
     }
 
     final Handler mBannerHandler = new Handler(Looper.myLooper()) {

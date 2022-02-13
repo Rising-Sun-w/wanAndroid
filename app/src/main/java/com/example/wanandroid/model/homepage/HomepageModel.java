@@ -30,9 +30,10 @@ public class HomepageModel {
     public void getArticleData(IMessagePresenter iMessagePresenter, int page) {
         String URL_ARTICLE = BASEURL_ARTICLE + page + "/json";
         Log.e(TAG, "=====page=====" + page);
-        netUtils.getRequest1(URL_ARTICLE, new Callback() {
+        netUtils.getRequest(URL_ARTICLE, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                iMessagePresenter.loadFail();
                 Log.e(TAG, "请求失败");
             }
 
@@ -41,16 +42,17 @@ public class HomepageModel {
                 Message msg = new Message();
                 msg.what = MSG_ARTICLE;
                 msg.obj = response.body().string();
-                iMessagePresenter.loadLoginCondition(msg);
+                iMessagePresenter.loadSuccess(msg);
                 response.close();
             }
         });
     }
 
     public void getBannerData(IMessagePresenter iMessagePresenter){
-        netUtils.getRequest1(URL_SLIDESHOW, new Callback() {
+        netUtils.getRequest(URL_SLIDESHOW, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                iMessagePresenter.loadFail();
                 Log.e(TAG, "请求失败");
             }
 
@@ -59,7 +61,7 @@ public class HomepageModel {
                 Message msg = new Message();
                 msg.what = MSG_BANNER;
                 msg.obj = response.body().string();
-                iMessagePresenter.loadLoginCondition(msg);
+                iMessagePresenter.loadSuccess(msg);
                 response.close();
             }
         });

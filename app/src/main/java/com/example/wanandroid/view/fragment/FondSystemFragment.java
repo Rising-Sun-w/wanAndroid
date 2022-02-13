@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.wanandroid.Presenter.fond.FondSystemAdapter;
-import com.example.wanandroid.Presenter.fond.FondSystemPresenter;
+import com.example.wanandroid.Presenter.fond.FondTabsPresenter;
 import com.example.wanandroid.R;
 import com.example.wanandroid.model.bean.SystemBean;
 
@@ -28,7 +28,7 @@ public class FondSystemFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fond_system, container, false);
         rvFondSystem = v.findViewById(R.id.rv_fond_system);
-        new FondSystemPresenter(getContext(), rvFondSystem);
+        new FondTabsPresenter(getContext(), rvFondSystem, 21);
         return v;
     }
 }

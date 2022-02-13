@@ -1,7 +1,6 @@
 package com.example.wanandroid.model.fond;
 
 import android.os.Message;
-import android.util.Log;
 
 import com.example.wanandroid.Presenter.interfaces.IMessagePresenter;
 import com.example.wanandroid.utils.NetUtils;
@@ -16,30 +15,23 @@ import okhttp3.Response;
  * @author : RisingSun
  * @description ： TODO:
  * @email : 2803724412@qq.com
- * @date : 2022/1/28 19:18
+ * @date : 2022/2/12 20:02
  */
-public class SystemModel {
+public class SystemContentModel {
+    private static final String BASE_URL = "https://www.wanandroid.com/article/list/";
 
-    private static final String TAG = "SystemModel";
-
-    private static final String URL_SYSTEM = "https://www.wanandroid.com/tree/json";
-
-    /**
-     * 网络请求数据
-     */
-    public static void getSystemData(IMessagePresenter iMessagePresenter){
+    public static void getSystemContentData(int page, int cid, IMessagePresenter iMessagePresenter) {
+        String url = BASE_URL + page + "/json?cid=" + cid;
         NetUtils netUtils = new NetUtils();
-        netUtils.getRequest(URL_SYSTEM, new Callback() {
+        netUtils.getRequest(url, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 iMessagePresenter.loadFail();
-                Log.e(TAG, "请求失败");
             }
-
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Message msg = new Message();
-                msg.what = 21;
+                msg.what = 22;
                 msg.obj = response.body().string();
                 iMessagePresenter.loadSuccess(msg);
                 response.close();

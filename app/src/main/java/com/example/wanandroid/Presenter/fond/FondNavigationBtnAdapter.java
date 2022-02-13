@@ -1,7 +1,7 @@
 package com.example.wanandroid.Presenter.fond;
 
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,7 @@ import com.example.wanandroid.Presenter.interfaces.OnItemClickListener;
 import com.example.wanandroid.R;
 import com.example.wanandroid.model.bean.NavigationBean;
 import com.example.wanandroid.model.bean.SystemBean;
-import com.example.wanandroid.view.activities.SystemContentActivity;
+import com.example.wanandroid.view.activities.ContentActivity;
 
 import java.util.ArrayList;
 
@@ -24,15 +24,16 @@ import java.util.ArrayList;
  * @email : 2803724412@qq.com
  * @date : 2022/1/29 01:08
  */
-public class FondSystemBtnAdapter extends RecyclerView.Adapter<FondSystemBtnAdapter.ViewHolder> {
+public class FondNavigationBtnAdapter extends RecyclerView.Adapter<FondNavigationBtnAdapter.ViewHolder> {
 
-    private final ArrayList<SystemBean.Data.Children> contentList;
+    private final ArrayList<NavigationBean.Data.Articles> contentList;
     private final Context context;
     private OnItemClickListener onItemClickListener;
+    private static final String TAG = "FondNavigationAdapter";
 
-    public FondSystemBtnAdapter(Context context, ArrayList<SystemBean.Data.Children> systemContentList){
+    public FondNavigationBtnAdapter(Context context, ArrayList<NavigationBean.Data.Articles> navigationContentList) {
         this.context = context;
-        this.contentList = systemContentList;
+        this.contentList = navigationContentList;
     }
 
     @NonNull
@@ -44,11 +45,33 @@ public class FondSystemBtnAdapter extends RecyclerView.Adapter<FondSystemBtnAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.btnContent.setText(contentList.get(position).getName());
+        holder.btnContent.setText(contentList.get(position).getTitle());
         holder.itemView.setOnClickListener((View v) -> {
-            if (onItemClickListener != null){
-                SystemContentActivity systemContentActivity = new SystemContentActivity();
-                systemContentActivity.setContentList(contentList);
+            if (onItemClickListener != null) {
+                ContentActivity contentActivity = new ContentActivity();
+                String url = contentList.get(position).getLink();
+                char[] urlList = url.toCharArray();
+                String urlSave = "";
+                Boolean isUrlAdds = false;
+                for (int i = 0; i < urlList.length; i++) {
+                    if (urlList[i] == 's' && urlList[i + 1] == ':') {
+                        break;
+                    }
+                    if (urlList[i] == ':' && urlList[i + 1] == '/') {
+                        for (int j = i; j < urlList.length; j++) {
+                            urlSave += urlList[j];
+                        }
+                        isUrlAdds = true;
+                        break;
+                    }
+                }
+                String urlTestSave = url;
+                if (isUrlAdds) {
+                    urlTestSave = "https" + urlSave;
+                }
+                contentActivity.setURl(urlTestSave);
+                Log.e(TAG, "=======setURl========" + urlTestSave);
+                contentActivity.setTextTvTitle(contentList.get(position).getTitle());
                 onItemClickListener.onItemShortClick(position);
             }
         });
@@ -61,6 +84,7 @@ public class FondSystemBtnAdapter extends RecyclerView.Adapter<FondSystemBtnAdap
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         Button btnContent;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             btnContent = itemView.findViewById(R.id.btn_item_tab_rv);
