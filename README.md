@@ -21,9 +21,7 @@
 
 ## APP功能的展示(GIF)
 
-<img src="D:\好看图图\g3.gif" alt="g3" style="zoom:33%;" /><img src="D:\好看图图\QQ图片20220215191108.gif\" alt="QQ图片20220215191108" style="zoom:30%;" /><img src="D:\好看图图\g2.gif" alt="g2" style="zoom:33%;" />
 
-<img src="D:\好看图图\g7.gif" alt="g7" style="zoom:33%;" /><img src="D:\好看图图\g4.gif" alt="g4" style="zoom:33%;" /><img src="D:\好看图图\g5.gif" alt="g5" style="zoom:33%;" />
 
 ### 技术亮点或者说你认为写得不错的地方
 
