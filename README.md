@@ -21,7 +21,7 @@
 
 ## APP功能的展示(GIF)
 
-
+![image][wanAndroid/g1.gif at main · Rising-Sun-w/wanAndroid (github.com)](https://github.com/Rising-Sun-w/wanAndroid/blob/main/GIF/g1.gif)
 
 ### 技术亮点或者说你认为写得不错的地方
 
