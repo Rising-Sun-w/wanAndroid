@@ -1,4 +1,4 @@
-package com.example.wanandroid.view.fragment;
+package com.example.wanandroid.view.fragment.fond;
 
 import android.os.Bundle;
 
@@ -16,6 +16,12 @@ import com.example.wanandroid.model.bean.SystemBean;
 
 import java.util.ArrayList;
 
+/**
+ * @author : RisingSun
+ * @description ： TODO: 体系
+ * @email : 2803724412@qq.com
+ * @date : 2022/2/14 13:14
+ */
 public class FondSystemFragment extends Fragment {
 
     RecyclerView rvFondSystem;

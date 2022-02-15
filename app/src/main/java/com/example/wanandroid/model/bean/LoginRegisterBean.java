@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 登录接口对应的bean
  * @email : 2803724412@qq.com
  * @date : 2022/1/18 13:34
  */

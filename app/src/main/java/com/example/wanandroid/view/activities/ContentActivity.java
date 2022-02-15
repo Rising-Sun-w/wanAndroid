@@ -11,6 +11,13 @@ import android.widget.TextView;
 
 import com.example.wanandroid.R;
 
+/**
+ * @author : RisingSun
+ * @description ： TODO: 首页文章列表和问答列表点击后的显示
+ * @email : 2803724412@qq.com
+ * @date : 2022/2/9 13:58
+ */
+
 public class ContentActivity extends AppCompatActivity {
 
     private WebView webView;

@@ -31,13 +31,12 @@ import okhttp3.Response;
 
 /**
  * @author RisingSun
- * @description ： TODO:
+ * @description ： TODO: 问答
  * @email : 2803724412@qq.com
  * @Data 2022/1/22 10:46
  */
 public class QaFragment extends Fragment {
 
-    private static final String TAG = ".QaFragment";
     private static RecyclerView rv;
 
     @Override

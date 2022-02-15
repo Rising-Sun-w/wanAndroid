@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -30,7 +31,7 @@ import java.util.Objects;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 首页逻辑处理
  * @email : 2803724412@qq.com
  * @date : 2022/2/6 08:42
  */
@@ -120,6 +121,7 @@ public class HomepagePresenter implements IMessagePresenter {
                 articleMoreList.addAll(articleList);
                 int size = articleMoreList.size();
                 if (page - 1 == 0 || isRefresh) {
+                    rvHpg.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
                     LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
                     rvHpg.setLayoutManager(layoutManager);
                     articleAdapter = new ArticleAdapter(mContext, articleMoreList, rvHpg);

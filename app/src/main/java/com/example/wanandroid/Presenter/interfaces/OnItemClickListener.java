@@ -2,7 +2,7 @@ package com.example.wanandroid.Presenter.interfaces;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: item点击事件的接口
  * @email : 2803724412@qq.com
  * @date : 2022/2/7 00:40
  */

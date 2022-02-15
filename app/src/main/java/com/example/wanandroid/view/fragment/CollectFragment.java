@@ -10,6 +10,12 @@ import android.view.ViewGroup;
 
 import com.example.wanandroid.R;
 
+/**
+ * @author : RisingSun
+ * @description ： TODO: 收藏
+ * @email : 2803724412@qq.com
+ * @date : 2022/1/19 10:59
+ */
 public class CollectFragment extends Fragment {
 
 

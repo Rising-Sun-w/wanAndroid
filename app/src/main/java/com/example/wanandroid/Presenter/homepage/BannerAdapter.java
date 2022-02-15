@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 轮播图适配器
  * @email : 2803724412@qq.com
  * @date : 2022/1/20 15:30
  */

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 发现模块中导航的item适配器
  * @email : 2803724412@qq.com
  * @date : 2022/1/29 01:08
  */
@@ -29,7 +29,6 @@ public class FondNavigationBtnAdapter extends RecyclerView.Adapter<FondNavigatio
     private final ArrayList<NavigationBean.Data.Articles> contentList;
     private final Context context;
     private OnItemClickListener onItemClickListener;
-    private static final String TAG = "FondNavigationAdapter";
 
     public FondNavigationBtnAdapter(Context context, ArrayList<NavigationBean.Data.Articles> navigationContentList) {
         this.context = context;
@@ -70,7 +69,6 @@ public class FondNavigationBtnAdapter extends RecyclerView.Adapter<FondNavigatio
                     urlTestSave = "https" + urlSave;
                 }
                 contentActivity.setURl(urlTestSave);
-                Log.e(TAG, "=======setURl========" + urlTestSave);
                 contentActivity.setTextTvTitle(contentList.get(position).getTitle());
                 onItemClickListener.onItemShortClick(position);
             }

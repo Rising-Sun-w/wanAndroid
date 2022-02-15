@@ -1,36 +1,24 @@
 package com.example.wanandroid.utils;
 
-import android.content.Context;
-import android.os.Environment;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-import com.example.wanandroid.R;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 网络请求
  * @email : 2803724412@qq.com
  * @date : 2022/1/15 20:32
  */
 public class NetUtils {
 
     /**
-     * GET 异步请求
+     * GET请求
      */
     public void getRequest(String url, Callback callback) {
         OkHttpClient client = new OkHttpClient();

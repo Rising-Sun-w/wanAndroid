@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,20 +16,19 @@ import com.example.wanandroid.model.bean.NavigationBean;
 import com.example.wanandroid.model.bean.SystemBean;
 import com.example.wanandroid.model.fond.NavigationModel;
 import com.example.wanandroid.model.fond.SystemModel;
-import com.example.wanandroid.view.fragment.FondSystemFragment;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 发现模块逻辑处理
  * @email : 2803724412@qq.com
  * @date : 2022/1/28 19:49
  */
 public class FondTabsPresenter implements IMessagePresenter {
 
-    private static final String TAG = ".SystemPresenter";
+    private static final String TAG = ".FondTabsPresenter";
     private static final int MSG_SYSTEM = 21;
     private static final int MSG_NAVIGATION = 31;
     @SuppressLint("StaticFieldLeak")
@@ -54,11 +52,9 @@ public class FondTabsPresenter implements IMessagePresenter {
     @Override
     public void loadSuccess(Message msg) {
         if (msg.what == MSG_SYSTEM) {
-            Log.e(TAG, "====SYSTEM.msg.what===" + msg.what);
             mSystemHandler.sendMessage(msg);
         } else if (msg.what == MSG_NAVIGATION) {
             mNavigationHandler.sendMessage(msg);
-            Log.e(TAG, "====NAVIGATION.msg.what===" + msg.what);
         }
     }
 

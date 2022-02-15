@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue_50"
     android:orientation="vertical"
-    tools:context=".view.fragment.FondFragment">
+    tools:context=".view.fragment.fond.FondFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_fond"

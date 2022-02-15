@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 导航接口对应bean
  * @email : 2803724412@qq.com
  * @date : 2022/2/11 22:49
  */

@@ -21,13 +21,12 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 发现模块中导航的适配器
  * @email : 2803724412@qq.com
  * @date : 2022/1/26 16:38
  */
 public class FondNavigationAdapter extends RecyclerView.Adapter<FondNavigationAdapter.ViewHolder> {
 
-    private static final String TAG = "FondNavigationAdapter";
     private final ArrayList<NavigationBean.Data> navigationList;
     private final Context context;
 

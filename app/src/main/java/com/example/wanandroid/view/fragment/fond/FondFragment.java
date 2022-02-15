@@ -1,4 +1,4 @@
-package com.example.wanandroid.view.fragment;
+package com.example.wanandroid.view.fragment.fond;
 
 import android.os.Bundle;
 
@@ -18,6 +18,12 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author : RisingSun
+ * @description ： TODO: 发现
+ * @email : 2803724412@qq.com
+ * @date : 2022/2/14 13:34
+ */
 public class FondFragment extends Fragment {
 
     private ViewPager2 vpFond;

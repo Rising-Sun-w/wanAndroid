@@ -2,6 +2,7 @@ package com.example.wanandroid.Presenter.fond;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 发现模块中体系的适配器
  * @email : 2803724412@qq.com
  * @date : 2022/1/26 16:38
  */

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 列表文章对应的bean
  * @email : 2803724412@qq.com
  * @date : 2022/1/22 10:46
  */

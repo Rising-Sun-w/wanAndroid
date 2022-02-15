@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.example.wanandroid.Presenter.register.RegisterPresenter;
 import com.example.wanandroid.R;
 import com.example.wanandroid.model.bean.LoginRegisterBean;
 import com.example.wanandroid.utils.NetUtils;
@@ -31,7 +33,7 @@ import okhttp3.Response;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 注册
  * @email : 2803724412@qq.com
  * @date : 2022/1/18 13:34
  */
@@ -45,9 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static String username;
     private static String password;
-
-    private static final String URL_REGISTER = "https://www.wanandroid.com/user/register";
-    private static final int MSG_REGISTER = 52;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                     regParameter.add(new RequestParameter("username", username));
                     regParameter.add(new RequestParameter("password", password));
                     regParameter.add(new RequestParameter("repassword", String.valueOf(ieTextRegisterRePwd.getText())));
-                    requestRegister(regParameter);
+                    new RegisterPresenter(RegisterActivity.this, regParameter);
                 }
             } else {
                 Toast.makeText(RegisterActivity.this, "请同意用户协议哦！", Toast.LENGTH_SHORT).show();
@@ -76,51 +75,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    Handler mHandler = new Handler(Looper.myLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == MSG_REGISTER) {
-                String jsonStr = (String) msg.obj;
-                Gson gson = new Gson();
-                LoginRegisterBean registerBean = gson.fromJson(jsonStr, LoginRegisterBean.class);
-                // errorCode: 0 = 注册成功， -1 = 用户名已经被注册或者两次输入密码不一
-                if (registerBean.getErrorCode() == 0) {
-                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                    // 持久化存储
-                    SharedPreferences preferences = getSharedPreferences("register", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("username", username);
-                    editor.putString("password", password);
-                    editor.apply();
-
-                    Log.e("TAG", "存储的值 username=" + preferences.getString("username", "") + "password=" + preferences.getString("password", ""));
-                } else {
-                    Toast.makeText(RegisterActivity.this, registerBean.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    };
-
-
-    private void requestRegister(ArrayList<RequestParameter> parameters) {
-        Log.d("TAG", Log.getStackTraceString(new Throwable()));
-        Message msg = new Message();
-        NetUtils netUtils = new NetUtils();
-        netUtils.postRequest(URL_REGISTER, parameters, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("TAG", "请求失败了啊");
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                msg.what = MSG_REGISTER;
-                msg.obj = response.body().string();
-                Log.e("TAG", "Register请求得到的数据" + msg.obj);
-                mHandler.sendMessage(msg);
-            }
-        });
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     private void initControls() {

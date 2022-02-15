@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 体系接口对应bean
  * @email : 2803724412@qq.com
  * @date : 2022/1/28 19:02
  */

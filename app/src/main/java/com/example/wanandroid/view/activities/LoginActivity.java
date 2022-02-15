@@ -1,6 +1,5 @@
 package com.example.wanandroid.view.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,23 +15,17 @@ import com.google.android.material.textfield.TextInputEditText;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 登录
  * @email : 2803724412@qq.com
  * @date : 2022/1/18 13:34
  */
-public class LoginActivity extends AppCompatActivity implements ILoginActivity {
+public class LoginActivity extends AppCompatActivity {
 
     TextView tvExperience;
     TextInputEditText ieTextLoginUsername;
     TextInputEditText ieTextLoginPwd;
     Button btnLogin;
     TextView tvRegister;
-
-    private Context context = LoginActivity.this;
-    private Intent intent;
-
-    private Boolean isSuccess;
-    private String errorMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +37,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
         });
 
         tvExperience.setOnClickListener((View v) -> {
-            // 利用弹窗让用户同意协议
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            onDestroy();
         });
 
         btnLogin.setOnClickListener((View v) -> {
@@ -54,15 +47,18 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
             if ("".equals(username) || "".equals(pwd)) {
                 Toast.makeText(LoginActivity.this, "账号或密码未输入", Toast.LENGTH_SHORT).show();
             } else {
-                LoginPresenter loginPresenter = new LoginPresenter(LoginActivity.this, username, pwd);
+                new LoginPresenter(LoginActivity.this, username, pwd);
             }
         });
     }
 
-    @Override
     public void showLoading() {
-        intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        onDestroy();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     /**

@@ -18,13 +18,23 @@
         <entry key="..\:/Android/wanAndroid/app/src/main/res/layout/item_hpg_article.xml" value="0.22" />
         <entry key="..\:/Android/wanAndroid/app/src/main/res/layout/item_qa.xml" value="0.14666666666666667" />
         <entry key="..\:/Android/wanAndroid/app/src/main/res/menu/menu_bottom_navigation_bar.xml" value="0.22" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/activity_system_content.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_collect.xml" value="0.1" />
         <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_fond.xml" value="0.15045592705167174" />
         <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_fond_system.xml" value="0.3104166666666667" />
-        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_homepage.xml" value="0.19701492537313434" />
-        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_qa.xml" value="0.13333333333333333" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_homepage.xml" value="0.1" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_my.xml" value="0.1" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_qa.xml" value="0.1" />
         <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/fragment_system_content.xml" value="0.1265625" />
         <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/item_foot.xml" value="0.13333333333333333" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/item_hpg_article.xml" value="0.15" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/item_qa.xml" value="0.14583333333333334" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/layout/item_systen_tab.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/menu/menu_bottom_navigation_bar.xml" value="0.3104166666666667" />
+        <entry key="..\:/Android/wanAndroidGit/wanAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16197916666666667" />
         <entry key="..\:/Android/wanAndroidTest/app/src/main/res/drawable/shape_btn_blue.xml" value="0.18854166666666666" />
         <entry key="..\:/Android/wanAndroidTest/app/src/main/res/drawable/shape_btn_white.xml" value="0.2759259259259259" />
         <entry key="..\:/Android/wanAndroidTest/app/src/main/res/layout/activity_content.xml" value="0.16822916666666668" />

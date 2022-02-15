@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.wanandroid.R;
-
+/**
+ * @author : RisingSun
+ * @description ： TODO: 我的
+ * @email : 2803724412@qq.com
+ * @date : 2022/1/19 10:59
+ */
 public class MyFragment extends Fragment {
 
     @Override

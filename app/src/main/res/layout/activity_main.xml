@@ -17,7 +17,7 @@
             android:id="@+id/vp_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal" />
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,6 +27,5 @@
         android:background="@color/white"
         app:itemBackground="@color/white"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu_bottom_navigation_bar"
-        />
+        app:menu="@menu/menu_bottom_navigation_bar" />
 </LinearLayout>

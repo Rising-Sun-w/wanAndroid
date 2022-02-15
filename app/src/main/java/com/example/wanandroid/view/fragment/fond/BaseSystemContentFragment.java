@@ -1,4 +1,4 @@
-package com.example.wanandroid.view.fragment;
+package com.example.wanandroid.view.fragment.fond;
 
 import android.os.Bundle;
 
@@ -10,7 +10,13 @@ import android.view.ViewGroup;
 
 import com.example.wanandroid.R;
 
-public class SystemContentFragment extends Fragment {
+/**
+ * @author : RisingSun
+ * @description ： TODO:
+ * @email : 2803724412@qq.com
+ * @date : 2022/2/14 13:34
+ */
+public class BaseSystemContentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

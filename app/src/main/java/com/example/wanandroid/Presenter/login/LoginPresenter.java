@@ -1,6 +1,7 @@
 package com.example.wanandroid.Presenter.login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -13,13 +14,14 @@ import com.example.wanandroid.model.bean.LoginRegisterBean;
 import com.example.wanandroid.model.login.LoginModel;
 import com.example.wanandroid.utils.RequestParameter;
 import com.example.wanandroid.view.activities.LoginActivity;
+import com.example.wanandroid.view.activities.MainActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 登录逻辑处理
  * @email : 2803724412@qq.com
  * @date : 2022/1/24 20:39
  */
@@ -61,6 +63,8 @@ public class LoginPresenter implements IMessagePresenter {
                     Toast.makeText(context, loginBean.getErrorMsg(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(context, "登录成功！", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, MainActivity.class);
+                    context.startActivity(intent);
                     loginActivity.showLoading();
                 }
             }

@@ -9,6 +9,7 @@ import android.os.Message;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 问答逻辑处理
  * @email : 2803724412@qq.com
  * @date : 2022/2/9 13:58
  */
@@ -89,6 +90,7 @@ public class QaPresenter implements IMessagePresenter {
                         @Override
                         public void onItemLongClick(int position) { }
                     });
+                    mRvQa.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
                     mRvQa.setLayoutManager(layoutManager);
                     mRvQa.setAdapter(adapter);
                 } else {

@@ -7,7 +7,7 @@ import java.util.Collection;
 
 /**
  * @author : RisingSun
- * @description ： TODO:
+ * @description ： TODO: 轮播图对应bean
  * @email : 2803724412@qq.com
  * @date : 2022/1/19 08:35
  */
