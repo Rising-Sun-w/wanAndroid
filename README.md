@@ -21,7 +21,7 @@
 
 ## APP功能的展示(GIF)
 
-[![HRq7nS.gif](https://s4.ax1x.com/2022/02/15/HRq7nS.gif)](https://imgtu.com/i/HRq7nS)
+[![HRq7nS.gif  style="zoom:33%;"](https://s4.ax1x.com/2022/02/15/HRq7nS.gif)](https://imgtu.com/i/HRq7nS)
 
 ### 技术亮点或者说你认为写得不错的地方
 
